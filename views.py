@@ -1,4 +1,6 @@
 from flask import Blueprint, render_template, send_file
+from requests import request
+from commons import is_filename_ok
 
 views = Blueprint(__name__, "views")
 
@@ -10,3 +12,15 @@ def home():
 def pdf():
     return send_file('referat.pdf')
 
+@views.route("/cmp", methods=['POST'])
+def compaile_and_send():
+    if 'file' not in request.files:
+        return 'File not found', 400
+
+    file = request.files['file']
+
+    if not file or not is_filename_ok(file.filename):
+        return 'File is corrupted', 400
+
+    compile(file)
+    return 'Success!', 200
