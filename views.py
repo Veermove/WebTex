@@ -10,7 +10,11 @@ def home():
 
 @views.route("/pdf")
 def pdf():
-    return send_file('referat.pdf')
+    return send_file('resources/referat.pdf')
+
+@views.route("/indexjs")
+def indexjs():
+    return send_file('templates/index.js')
 
 @views.route("/cmp", methods=['POST'])
 def compaile_and_send():
