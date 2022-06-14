@@ -44,7 +44,7 @@ body {
   flex-grow: 1;
   padding-right: 5px;
   padding-top: 30px;
-  background-color: #676767;
+  /* background-color: #676767; */
 }
 
 .wc_pdf {
@@ -56,7 +56,7 @@ body {
 
 
 #text_box {
-  background-color: #676767;
+  /* background-color: #676767; */
   box-sizing: border-box;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
