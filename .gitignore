@@ -7,4 +7,4 @@ NUL
 **/*.synctex.gz
 **/*.fdb_latexmk
 **/*.tex
-
+t_file.pdf

@@ -17,8 +17,7 @@
             <div class="wc_text">
                 <div id="text_box">
                     <textarea 
-                        id="text_field" 
-                        placeholder="Your LaTeX code goes here">
+                        id="text_field">
                     </textarea>
                 </div>
             </div>
@@ -27,6 +26,9 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='src-min/ace.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='src-min/mode-latex.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='src-min/ext-language_tools.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
 </body>
 </html>
