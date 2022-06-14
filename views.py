@@ -1,6 +1,5 @@
-from flask import Blueprint, render_template, send_file
-from requests import request
-from commons import is_filename_ok
+from flask import Blueprint, render_template, send_file, request
+from core import save_and_compile
 
 views = Blueprint(__name__, "views")
 
@@ -10,21 +9,24 @@ def home():
 
 @views.route("/pdf")
 def pdf():
-    return send_file('resources/referat.pdf')
+    return send_file('resources/t_file.pdf', conditional=False)
 
 @views.route("/indexjs")
 def indexjs():
     return send_file('templates/index.js')
 
-@views.route("/cmp", methods=['POST'])
-def compaile_and_send():
-    if 'file' not in request.files:
-        return 'File not found', 400
+@views.route("compileJson", methods=['POST'])
+def compile_json_send():
+    text = request.get_json()['text']
+    
+    save_and_compile(text)
+    return render_template("index.html")
 
-    file = request.files['file']
 
-    if not file or not is_filename_ok(file.filename):
-        return 'File is corrupted', 400
+@views.route('/submit', methods=['POST'])
+def submit():
+    return helper(request.form['text'])
 
-    compile(file)
-    return 'Success!', 200
+def helper(text):
+    save_and_compile(text)
+    return home()

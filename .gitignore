@@ -1,1 +1,10 @@
 __pycache__
+NUL
+**/*.aux
+**/*.fls
+**/*.log
+**/*.out
+**/*.synctex.gz
+**/*.fdb_latexmk
+**/*.tex
+
