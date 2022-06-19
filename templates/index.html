@@ -8,11 +8,19 @@
     <title>WebTex</title>
 </head>
 <body>
-    <div id="top_bar"> This will be a top bar
-        <button id="Button">Button</button>
-    </div>
+    <div id="top_bar">WebTex</div>
     <div class="page_wrap">
-        <div class="sidepanel">This will be a side pannel</div>
+        <div class="sidepanel">
+            <div class="button_wrap">
+                <button id="render">Render</button>
+                <button id="but_es">Essay preset</button>
+                <button id="but_emp">Empty preset</button>
+            </div>
+            <div class="button_dow">
+                <button id="download_tex">Download .tex</button>
+                <button id="download_pdf">Download .pdf</button>
+            </div>
+        </div>
         <div class="hub">
             <div class="wc_text">
                 <div id="text_box">
@@ -29,6 +37,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='src-min/ace.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='src-min/mode-latex.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='src-min/ext-language_tools.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='src-min/ext-emmet.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
 </body>
 </html>

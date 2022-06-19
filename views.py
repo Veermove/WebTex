@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, send_file, request
-from core import save_and_compile
+from core import save_and_compile, change_preset, compile_saved
 
 views = Blueprint(__name__, "views")
 
@@ -15,13 +15,16 @@ def pdf():
 def indexjs():
     return send_file('templates/index.js')
 
-@views.route("compileJson", methods=['POST'])
-def compile_json_send():
-    text = request.get_json()['text']
+@views.route("/starter", methods=['GET'])
+def starter_code():
+    default = 'essay'
+    args = request.args
+    if "preset" in args:
+        default = args["preset"]
     
-    save_and_compile(text)
-    return render_template("index.html")
-
+    change_preset(default)
+    compile_saved()
+    return get_default_text()
 
 @views.route('/submit', methods=['POST'])
 def submit():
@@ -30,3 +33,10 @@ def submit():
 def helper(text):
     save_and_compile(text)
     return home()
+
+@views.route('/def_text', methods=['GET'])
+def get_default_text():
+    with open('resources/t_file.tex', 'r') as default:
+        return default.read()
+    
+    return 500, "Coud not open t_file.tex"
