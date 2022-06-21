@@ -17,8 +17,8 @@
                 <button id="but_emp">Empty preset</button>
             </div>
             <div class="button_dow">
-                <button id="download_tex">Download .tex</button>
-                <button id="download_pdf">Download .pdf</button>
+                <div id="download_tex"><a href="{{ url_for('views.download', filename='t_file.tex') }}">Download .tex</a></div>
+                <div id="download_pdf"><a href="{{ url_for('views.download', filename='t_file.pdf') }}">Download .pdf</a></div>
             </div>
         </div>
         <div class="hub">

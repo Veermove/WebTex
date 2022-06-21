@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template, send_file, request
+from flask import Blueprint, render_template, send_file, send_from_directory, request
 from core import save_and_compile, change_preset, compile_saved
+import os
 
 views = Blueprint(__name__, "views")
 
@@ -40,3 +41,8 @@ def get_default_text():
         return default.read()
     
     return 500, "Coud not open t_file.tex"
+
+
+@views.route('/uploads/<path:filename>', methods=['GET', 'POST'])
+def download(filename):
+    return send_from_directory(os.getcwd() + '/resources', filename)
