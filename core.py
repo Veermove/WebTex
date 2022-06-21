@@ -9,7 +9,7 @@ def save_and_compile(text):
 
 def compile_saved():
     os.system("cd resources")
-    os.system("pdflatex -file-line-error -interaction nonstopmode t_file.tex > NUL")
+    os.system("pdflatex -file-line-error -interaction nonstopmode t_file.tex")
     os.system("cd ..")
     time.sleep(1.5)
 
