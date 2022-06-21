@@ -12,7 +12,9 @@ def save_and_compile(text):
     return compile_saved()
 
 def compile_saved():
-    os.system("pdflatex -interaction nonstopmode -output-directory /resources resources/t_file.tex > NUL 2>&1")
+    os.system("cd resources")
+    os.system("pdflatex -file-line-error -interaction nonstopmode t_file.tex > NUL 2>&1")
+    os.system("cd ..")
     time.sleep(1.5)
 
 
