@@ -6,6 +6,7 @@ const setPresetURL = 'http://localhost:8080/starter?'
 document.getElementById("render").onclick = recompile
 document.getElementById("but_es").onclick = setPresetES
 document.getElementById("but_emp").onclick = setPresetEMP
+document.getElementById("but_lat").onclick = setPresetTITLE
 var pdfHandler = document.getElementById('pdf_view')
 
 
@@ -50,6 +51,10 @@ function setPresetES() {
 
 function setPresetEMP() {
     setPreset("empty")
+}
+
+function setPresetTITLE() {
+    setPreset("title")
 }
 
 function setPreset(sample) {

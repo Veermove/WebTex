@@ -95,13 +95,13 @@ body {
   flex-direction: column;
 }
 
-#render:hover, #but_es:hover, #but_emp:hover, #download_tex:hover, #download_pdf:hover {
+#render:hover, #but_es:hover, #but_emp:hover, #but_lat:hover, #download_tex:hover, #download_pdf:hover {
   flex-grow: 4;
   max-height: 80px;
   cursor: pointer;
 }
 
-#render, #but_es, #but_emp {
+#render, #but_es, #but_emp, #but_lat {
   flex: 1;
   max-height: 60px;
   font-size: large;
