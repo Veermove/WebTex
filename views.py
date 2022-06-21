@@ -3,6 +3,7 @@ from core import save_and_compile, change_preset, compile_saved
 import os
 
 views = Blueprint(__name__, "views")
+UPLOAD_FOLDER = os.path.join(os.getcwd() + "/resources")
 
 @views.route("/")
 def home():
@@ -31,10 +32,6 @@ def starter_code():
 def submit():
     return helper(request.form['text'])
 
-def helper(text):
-    save_and_compile(text)
-    return home()
-
 @views.route('/def_text', methods=['GET'])
 def get_default_text():
     with open('resources/t_file.tex', 'r') as default:
@@ -51,3 +48,7 @@ def download(filename):
 def apply_caching(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
+
+def helper(text):
+    save_and_compile(text)
+    return home()

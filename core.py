@@ -1,9 +1,5 @@
-from io import TextIOWrapper
 import os
 import time
-
-def add_preambule(file: TextIOWrapper):
-    pass
 
 def save_and_compile(text):
     t_file = open('./resources/t_file.tex', 'w')
@@ -16,7 +12,6 @@ def compile_saved():
     os.system("pdflatex -file-line-error -interaction nonstopmode t_file.tex")
     os.system("cd ..")
     time.sleep(1.5)
-
 
 def change_preset(default_file_name: str):
     name = "resources/defaults/" + default_file_name
