@@ -30,12 +30,12 @@
                 </div>
             </div>
             <div class="wc_pdf">
-                <iframe id="pdf_view" src="http://localhost:8080/pdf"></iframe>
+                <iframe id="pdf_view" src="{{ url_for('views.pdf') }}"></iframe>
             </div>
         </div>
     </div>
-    <script src="https://pagecdn.io/lib/ace/1.4.14/mode-latex.js"></script>
     <script src="https://pagecdn.io/lib/ace/1.4.14/ace.js"></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.14/mode-latex.js"></script>
     <script src="https://pagecdn.io/lib/ace/1.4.14/ext-language_tools.js"></script>
     <script src="https://pagecdn.io/lib/ace/1.4.14/ext-emmet.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>

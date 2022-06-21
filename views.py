@@ -46,3 +46,8 @@ def get_default_text():
 @views.route('/uploads/<path:filename>', methods=['GET', 'POST'])
 def download(filename):
     return send_from_directory(os.getcwd() + '/resources', filename)
+
+@views.after_request
+def apply_caching(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
